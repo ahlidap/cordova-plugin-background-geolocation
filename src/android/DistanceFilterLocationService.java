@@ -102,8 +102,10 @@ public class DistanceFilterLocationService extends com.tenforwardconsulting.cord
         criteria = new Criteria();
         criteria.setAltitudeRequired(false);
         criteria.setBearingRequired(false);
-        criteria.setSpeedRequired(true);
-        criteria.setCostAllowed(true);
+        //criteria.setSpeedRequired(true);
+        //criteria.setCostAllowed(true);
+        criteria.setSpeedRequired(false);
+        criteria.setCostAllowed(false);
     }
 
     @Override
@@ -139,9 +141,9 @@ public class DistanceFilterLocationService extends com.tenforwardconsulting.cord
 
         locationManager.removeUpdates(this);
 
-        criteria.setAccuracy(Criteria.ACCURACY_FINE);
+        criteria.setAccuracy(translateDesiredAccuracy(config.getDesiredAccuracy()));
         criteria.setHorizontalAccuracy(translateDesiredAccuracy(config.getDesiredAccuracy()));
-        criteria.setPowerRequirement(Criteria.POWER_HIGH);
+        criteria.setPowerRequirement(Criteria.POWER_LOW);
 
         if (isMoving) {
             // setPace can be called while moving, after distanceFilter has been recalculated.  We don't want to re-acquire velocity in this case.
@@ -174,6 +176,9 @@ public class DistanceFilterLocationService extends com.tenforwardconsulting.cord
     */
     private Integer translateDesiredAccuracy(Integer accuracy) {
         switch (accuracy) {
+            case 10000:
+                accuracy = Criteria.ACCURACY_COARSE;
+                break;
             case 1000:
                 accuracy = Criteria.ACCURACY_LOW;
                 break;
@@ -426,9 +431,13 @@ public class DistanceFilterLocationService extends com.tenforwardconsulting.cord
              if (config.isDebugging()) {
                  startTone("dialtone");
              }
-             criteria.setAccuracy(Criteria.ACCURACY_FINE);
-             criteria.setHorizontalAccuracy(Criteria.ACCURACY_HIGH);
-             criteria.setPowerRequirement(Criteria.POWER_HIGH);
+             
+             //criteria.setAccuracy(Criteria.ACCURACY_FINE);
+             criteria.setAccuracy(Criteria.ACCURACY_LOW);
+             //criteria.setHorizontalAccuracy(Criteria.ACCURACY_HIGH);
+             criteria.setHorizontalAccuracy(Criteria.ACCURACY_LOW);
+             //criteria.setPowerRequirement(Criteria.POWER_HIGH);
+             criteria.setPowerRequirement(Criteria.POWER_LOW);
              locationManager.requestSingleUpdate(criteria, singleUpdatePI);
          }
      };

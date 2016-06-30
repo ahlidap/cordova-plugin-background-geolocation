@@ -110,7 +110,7 @@ public abstract class AbstractLocationService extends Service {
 
             Notification notification = builder.build();
             notification.flags |= Notification.FLAG_ONGOING_EVENT | Notification.FLAG_FOREGROUND_SERVICE | Notification.FLAG_NO_CLEAR;
-            startForeground(startId, notification);
+            startForeground(0, notification);
         }
 
         //We want this service to continue running until it is explicitly stopped

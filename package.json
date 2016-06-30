@@ -1,9 +1,9 @@
 {
-  "name": "cordova-plugin-mauron85-background-geolocation",
-  "version": "0.9.6",
+  "name": "cordova-plugin-ahlidap-background-geolocation",
+  "version": "0.9.7",
   "description": "Cordova Background GeoLocation Plugin",
   "cordova": {
-    "id": "cordova-plugin-mauron85-background-geolocation",
+    "id": "cordova-plugin-ahlidap-background-geolocation",
     "platforms": [
       "android",
       "ios",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mauron85/cordova-plugin-background-geolocation.git"
+    "url": "git+https://github.com/ahlidap/cordova-plugin-background-geolocation.git"
   },
   "keywords": [
     "gps",
@@ -35,7 +35,7 @@
   "author": "",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/mauron85/cordova-plugin-background-geolocation/issues"
+    "url": "https://github.com/ahlidap/cordova-plugin-background-geolocation/issues"
   },
-  "homepage": "https://github.com/mauron85/cordova-plugin-background-geolocation#readme"
+  "homepage": "https://github.com/ahlidap/cordova-plugin-background-geolocation#readme"
 }
