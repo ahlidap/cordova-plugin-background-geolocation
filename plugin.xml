@@ -62,7 +62,7 @@
             </feature>
         </config-file>
         <framework src="com.google.android.gms:play-services-location:+" />
-        <framework src="com.android.support:support-v4:+" />
+        <framework src="com.android.support:support-v13:23+" />
     </platform>
 
     <platform name="ios">
